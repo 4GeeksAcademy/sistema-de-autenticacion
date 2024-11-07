@@ -19,8 +19,8 @@ export const Login = () => {
 
 		if (response.ok) {
 			const data = await response.json();
-			sessionStorage.setItem("token", data.access_token); // Guardar token en sessionStorage
-			navigate("/private"); // Redirigir al área privada después de iniciar sesión
+			sessionStorage.setItem("token", data.access_token);
+			navigate("/private");
 		} else {
 			const data = await response.json();
 			alert(data.error || "Error during login");

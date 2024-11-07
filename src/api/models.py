@@ -8,7 +8,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(80), nullable=False)
-    is_active = db.Column(db.Boolean(), default=True, nullable=False)  # Nuevo usuario activo por defecto
+    is_active = db.Column(db.Boolean(), default=True, nullable=False)
 
     def __repr__(self):
         return f'<User {self.email}>'
@@ -17,7 +17,6 @@ class User(db.Model):
         return {
             "id": self.id,
             "email": self.email,
-            # No serializar la contraseña por motivos de seguridad
         }
 
     def set_password(self, password):

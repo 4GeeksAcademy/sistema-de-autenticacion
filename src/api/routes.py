@@ -10,7 +10,7 @@ from flask_jwt_extended import create_access_token, jwt_required
 api = Blueprint('api', __name__)
 bcrypt = Bcrypt()
 
-# Allow CORS requests to this API
+# Allow CORS
 CORS(api)
 
 @api.route('/hello', methods=['POST', 'GET'])
@@ -34,14 +34,14 @@ def signup():
         return jsonify({"error": "User already exists"}), 400
 
     new_user = User(email=email)
-    new_user.set_password(password)  # Utilize the set_password method from the model
+    new_user.set_password(password)
 
     try:
         db.session.add(new_user)
         db.session.commit()
     except Exception as e:
-        db.session.rollback()  # Rollback on error
-        return jsonify({"error": str(e)}), 500  # Internal server error
+        db.session.rollback()
+        return jsonify({"error": str(e)}), 500
 
     return jsonify({"message": "User created successfully"}), 201
 

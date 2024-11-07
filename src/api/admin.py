@@ -25,7 +25,6 @@ class AuthenticatedModelView(ModelView):
         if is_created:
             model.password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
         else:
-            # Si se está editando, no se debe cambiar la contraseña a menos que se proporcione una nueva
             if form.password.data:
                 model.password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
 

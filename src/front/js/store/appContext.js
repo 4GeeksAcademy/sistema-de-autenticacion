@@ -21,10 +21,8 @@ const injectContext = (PassedComponent) => {
 
 		useEffect(() => {
 			// Esta función se ejecuta una vez cuando se monta el componente
-			state.actions.getMessage(); // Llama a la función para obtener el mensaje
+			state.actions.getMessage();
 		}, []);
-
-		// Proveer el contexto al componente pasado
 		return (
 			<Context.Provider value={state}>
 				<PassedComponent {...props} />

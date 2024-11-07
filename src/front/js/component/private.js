@@ -11,7 +11,7 @@ export const Private = () => {
 
             // Verificar si el token existe
             if (!token) {
-                navigate("/login"); // Redirigir al login si no está autenticado
+                navigate("/login"); 
                 return;
             }
 
@@ -26,7 +26,7 @@ export const Private = () => {
                 const data = await response.json();
                 setMessage(data.message);
             } else {
-                navigate("/login"); // Redirigir si la respuesta no es válida
+                navigate("/login"); 
             }
         };
         fetchPrivateData();
